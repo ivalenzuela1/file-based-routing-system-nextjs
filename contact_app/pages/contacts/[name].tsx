@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
-import list from "../contact_list";
+import list from "../../contact_list";
 import Link from "next/link";
+import Layout from "../../components/Layout";
 
 export default function Contacts() {
   const router = useRouter();
@@ -9,11 +10,11 @@ export default function Contacts() {
   const selectedName = contact?.name;
 
   return (
-    <div>
-      <Link href="/">
-        <div>Back</div>
-      </Link>
+    <Layout>
+      <a href="#" onClick={() => router.back()}>
+        Back
+      </a>
       <div>{selectedName}</div>
-    </div>
+    </Layout>
   );
 }
